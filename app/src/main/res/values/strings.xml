@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Background location</string>
+
+    <string name="general_ok">OK</string>
+
+    <string name="widget_location_name_format">Location: %s</string>
+    <string name="widget_location_name_unknown">Unknown</string>
+    <string name="widget_location_coords_format">Latitude: %1$.2f, Longitude: %2$.2f</string>
+    <string name="widget_update_time_format">Updated at: %s</string>
+
+    <string name="widget_config_privacy_note">Privacy note example: The app will have access to your location even when you are not using the app. The data is not further processed or stored in any way. See <a href="https://support.google.com/googleplay/android-developer/answer/10144311?visit_id=637595178493752421-1967680717&amp;rd=1#personal-sensitive">Privacy policy</a> for more details.</string>
+    <string name="widget_config_permissions_android_11_note">As of Android 11, you can\'t get permissions to both background and foreground locations in a single request. Please enable foreground position first by clicking the following button and then add the widget.</string>
+    <string name="widget_config_permissions_button">Grant location permissions</string>
+    <string name="widget_config_permissions_consent">Consent example: The widget requires background location permissions to function.\n\nThe app will have access to your location even when you are not using the app. The data is not further processed or stored in any way.</string>
+    <string name="widget_config_permissions_not_granted">The widget requires background location permissions to function.</string>
+
+    <string name="widget_status_loading">Loading…</string>
+    <string name="widget_status_error_location">Cannot obtain your location</string>
+    <string name="widget_status_error_permissions">Missing location permissions!</string>
+    <string name="widget_status_error_general_format">Error: %s</string>
+</resources>
