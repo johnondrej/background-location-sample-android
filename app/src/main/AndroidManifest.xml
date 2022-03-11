@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BackgroundLocation">
 
-        <activity android:name=".presentation.WidgetConfigActivity">
+        <activity
+            android:name=".presentation.WidgetConfigActivity"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
@@ -26,7 +28,9 @@
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <receiver android:name=".presentation.LocationWidget">
+        <receiver
+            android:name=".presentation.LocationWidget"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
