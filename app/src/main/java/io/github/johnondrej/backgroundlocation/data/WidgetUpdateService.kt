@@ -20,7 +20,8 @@ class WidgetUpdateService : JobIntentService() {
 
     @SuppressLint("MissingPermission") // checked by areLocationPermissionsGranted extension
     override fun onHandleWork(intent: Intent) {
-        val appWidgetId = intent.extras?.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID) ?: AppWidgetManager.INVALID_APPWIDGET_ID
+        val appWidgetId = intent.extras?.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID)
+            ?: AppWidgetManager.INVALID_APPWIDGET_ID
 
         if (appWidgetId != AppWidgetManager.INVALID_APPWIDGET_ID) {
             val locationProvider = LocationServices.getFusedLocationProviderClient(this)
@@ -32,7 +33,7 @@ class WidgetUpdateService : JobIntentService() {
                         val locationGeocoded = try {
                             Geocoder(this)
                                 .getFromLocation(location.latitude, location.longitude, 1)
-                                .firstOrNull()
+                                ?.firstOrNull()
                         } catch (e: Exception) {
                             null
                         }
@@ -49,13 +50,21 @@ class WidgetUpdateService : JobIntentService() {
                             )
                         )
                     } else {
-                        LocationWidget.updateWidget(context = this, appWidgetId, WidgetUpdateData.Error(NoDataException()))
+                        LocationWidget.updateWidget(
+                            context = this,
+                            appWidgetId = appWidgetId,
+                            updateData = WidgetUpdateData.Error(NoDataException())
+                        )
                     }
                 } catch (exception: Exception) {
                     LocationWidget.updateWidget(context = this, appWidgetId, WidgetUpdateData.Error(exception))
                 }
             } else {
-                LocationWidget.updateWidget(context = this, appWidgetId, WidgetUpdateData.Error(MissingPermissionsException()))
+                LocationWidget.updateWidget(
+                    context = this,
+                    appWidgetId = appWidgetId,
+                    updateData = WidgetUpdateData.Error(MissingPermissionsException())
+                )
             }
         }
     }
