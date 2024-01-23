@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="textColorWidget">#CC000000</color>
+
+    <color name="ic_launcher_background">#FFFFFF</color>
 </resources>
